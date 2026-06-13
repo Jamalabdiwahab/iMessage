@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "build": "rimraf dist && copyfiles -u 1 src/**/* dist",
-    "server": "nodemon src/server.js"
+    "server": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
