@@ -10,6 +10,7 @@ import cors from 'cors';
 import { connectToDB } from "./config/db.js";
 import { clerkMiddleware } from '@clerk/express'
 import job from "./lib/cron.js";
+import clerkWebhook from "./webhooks/clerk.webhook.js"
 
 const app=express();
 
@@ -17,6 +18,9 @@ const PORT=process.env.PORT || 5000;
 const FRONTEND_URL=process.env.FRONTEND_URL;
 
 const publicDir = path.join(process.cwd(), "public")
+
+// it's important that you don't parse the webhook event data, it should be in the raw format
+app.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhook);
 
 app.use(express.json());
 app.use(cors({
