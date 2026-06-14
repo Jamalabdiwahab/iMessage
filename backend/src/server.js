@@ -9,6 +9,7 @@ import cors from 'cors';
 
 import { connectToDB } from "./config/db.js";
 import { clerkMiddleware } from '@clerk/express'
+import job from "./lib/cron.js";
 
 const app=express();
 
@@ -41,5 +42,7 @@ if (fs.existsSync(publicDir)) {
 connectToDB().then(()=>{
     app.listen(PORT,()=>{
         console.log(`server is running on port ${PORT}`)
+
+        if(process.env.NODE_ENV === "production") job.start();
     })
 })
