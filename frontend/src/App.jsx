@@ -5,10 +5,13 @@ import ChatPage from './pages/ChatPage'
 import AuthPage from './pages/AuthPage'
 import { ThemeProvider } from './context/ThemeContext';
 import { WallpaperProvider } from './context/WallpaperContext';
+import PageLoader from './components/PageLoader';
 
 function App() {
 
   const { isSignedIn, isLoaded } = useAuth();
+
+  if(!isLoaded) return <PageLoader/>
 
   return (
     <ThemeProvider>
