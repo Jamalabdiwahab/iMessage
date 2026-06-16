@@ -1,6 +1,6 @@
 
 
-export async function checkAuth(params) {
+export async function checkAuth(req,res) {
     
     if(!req.user){
         return res.status(401).json({ message: "unAuthorized"});

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rimraf dist && copyfiles -u 1 src/**/* dist",
     "server": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "db:seed":"node src/seeds/user.seed.js"
   },
   "keywords": [],
   "author": "",

@@ -21,7 +21,7 @@ function App() {
   useEffect(()=>{
     if(!isLoaded) return;
 
-    if(isSignedIn) checkAuth;
+    if(isSignedIn) checkAuth();
     else clearAuth();
   },[checkAuth,clearAuth,isLoaded,isSignedIn])
 

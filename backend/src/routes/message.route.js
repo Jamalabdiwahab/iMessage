@@ -10,6 +10,5 @@ router.use(protectRoute);
 router.get("/users", getUsersForSidebar)
 router.get("/chats", getChatsForSidebar)
 router.get("/:id", getMessages)
-                        //   todo: show this ("media") in the frontend
-router.get("/sender/:id", upload.single("media"), sendMessage)
+router.post("/send/:id", upload.single("media"), sendMessage)
 export default router;
